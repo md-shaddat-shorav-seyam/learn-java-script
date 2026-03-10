@@ -13,7 +13,7 @@ JavaScript does not call them "libraries" — they are **global objects**.
 
 Here are the most important ones:
 
-## 🔢 Numbers & Math
+## 🔢 <a href ="https://github.com/md-shaddat-shorav-seyam/learn-java-script/blob/main/documentation/objects/numbers.md"> Numbers & Math</a>
 
 * `Number`
 * `BigInt`
