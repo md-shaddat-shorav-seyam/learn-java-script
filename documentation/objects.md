@@ -19,16 +19,16 @@ Here are the most important ones:
 * `BigInt`
 * `Math`
 
-## 🔤 Text
+## 🔤 <a href="https://github.com/md-shaddat-shorav-seyam/learn-java-script/blob/main/documentation/objects/strings.md"> Text </a>
 
 * `String`
 * `RegExp`
 
-## 📅 Date & Time
+## 📅 <a href="https://github.com/md-shaddat-shorav-seyam/learn-java-script/blob/main/documentation/objects/dates.md"> Date & Time  </a>
 
 * `Date`
 
-## 📦 Collections
+## 📦<a href=""> Collections </a>
 
 * `Array`
 * `Map`
@@ -36,12 +36,12 @@ Here are the most important ones:
 * `WeakMap`
 * `WeakSet`
 
-## 🧠 Structured Data
+## 🧠 <a href="https://github.com/md-shaddat-shorav-seyam/learn-java-script/blob/main/documentation/objects/Structured%20Data%20%20Object%20%20JSON.md"> Structured Data </a>
 
 * `Object`
 * `JSON`
 
-## ⚙️ Control & Error
+## ⚙️ <a href="https://github.com/md-shaddat-shorav-seyam/learn-java-script/blob/main/documentation/objects/Control%20%26%20Error%20%20Promise%20%20Error%20%20Symbol%20%20Proxy%20%20Reflect.md">Control & Error </a>
 
 * `Promise`
 * `Error`
@@ -49,7 +49,7 @@ Here are the most important ones:
 * `Proxy`
 * `Reflect`
 
-## 🌐 Browser APIs (Not pure JS, but available in browsers)
+## 🌐 <a href="https://github.com/md-shaddat-shorav-seyam/learn-java-script/blob/main/documentation/objects/Browser%20APIs%20(Not%20pure%20JS%2C%20but%20available%20in%20browsers)%20%20fetch%20%20localStorage%20%20document%20%20window%20%20console.md">Browser APIs (Not pure JS, but available in browsers) </a>
 
 * `fetch`
 * `localStorage`
