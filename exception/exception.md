@@ -76,7 +76,7 @@ console.log(e);
 If you want, I can also explain **scope chain in JavaScript (very important for interviews)** with simple diagrams.
 
 
-end+++++++++++++++++++++++++++++++++++++++++++++++
+end+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ----
 
 ------
@@ -202,3 +202,163 @@ If you want, I can show you **deep copy vs shallow copy** (very important for Re
 end
 ---
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
+# 3. Event bubbling
+
+
+
+**Event Bubbling in JavaScript** is a fundamental concept in DOM event handling.
+
+---
+
+## 🔹 What is Event Bubbling?
+
+Event bubbling means:
+
+> When an event happens on an element, it first runs on that element, then **bubbles up** to its parent, then grandparent… all the way to the `document`.
+
+---
+
+## 🔹 Simple Example
+
+```html
+<div id="parent">
+  <button id="child">Click Me</button>
+</div>
+```
+
+```js
+document.getElementById("parent").addEventListener("click", () => {
+  console.log("Parent clicked");
+});
+
+document.getElementById("child").addEventListener("click", () => {
+  console.log("Child clicked");
+});
+```
+
+### 👉 When you click the button:
+
+```
+Child clicked
+Parent clicked
+```
+
+✔ First → child
+✔ Then → parent
+
+This is **event bubbling** 🚀
+
+---
+
+## 🔹 Flow of Events
+
+There are **3 phases** in DOM events:
+
+1. **Capturing phase** (top → down)
+2. **Target phase** (actual element)
+3. **Bubbling phase** (bottom → up)
+
+By default, JavaScript uses **bubbling phase**.
+
+---
+
+## 🔹 Stop Bubbling
+
+Sometimes you don’t want the event to go up.
+
+Use:
+
+```js
+element.addEventListener("click", (e) => {
+  e.stopPropagation();
+});
+```
+
+### Example:
+
+```js
+document.getElementById("child").addEventListener("click", (e) => {
+  console.log("Child clicked");
+  e.stopPropagation();
+});
+```
+
+👉 Now output will be:
+
+```
+Child clicked
+```
+
+❌ Parent won’t run
+
+---
+
+## 🔹 Real World Use Case (🔥 Important)
+
+### Event Delegation
+
+Instead of adding event to many elements:
+
+```js
+document.querySelectorAll("li").forEach(li => {
+  li.addEventListener("click", () => console.log("clicked"));
+});
+```
+
+👉 Use bubbling:
+
+```js
+document.getElementById("list").addEventListener("click", (e) => {
+  console.log(e.target);
+});
+```
+
+✔ Better performance
+✔ Works for dynamic elements
+
+---
+
+## 🔹 Key Points
+
+* Events move **child → parent**
+* Default behavior = **bubbling**
+* Use `stopPropagation()` to stop it
+* Useful for **event delegation**
+
+---
+
+If you want, I can:
+✅ Show **event capturing vs bubbling visually**
+✅ Give a **real project (like todo app using delegation)**
+✅ Or give **interview-level tricky questions**
+
+
+end++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
