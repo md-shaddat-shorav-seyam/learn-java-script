@@ -355,6 +355,142 @@ end+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 
+# 4. promise resolve only once
+
+
+
+Let’s break this down carefully 👇
+
+## 🔍 Your Code
+
+```js
+const myP = new Promise((res, rej) => {
+    setInterval(() => {
+        res("user data loaded");
+    }, 2000);
+});
+
+myP.then(e => {
+    console.log(e);
+});
+```
+
+---
+
+## ⚡ What actually happens?
+
+### 1. Promise is created
+
+* The `Promise` executor runs immediately.
+* Inside it, you start a `setInterval` that runs every **2 seconds**.
+
+---
+
+### 2. After 2 seconds ⏱️
+
+* `res("user data loaded")` is called for the **first time**
+* ✅ Promise becomes **fulfilled**
+* `.then()` runs → prints:
+
+```
+user data loaded
+```
+
+---
+
+### 3. After that… (important part 🚨)
+
+The `setInterval` **keeps running forever**, calling `res(...)` every 2 seconds.
+
+BUT:
+
+👉 A Promise can be resolved **only once**
+
+So:
+
+* First call → works ✅
+* Next calls → ignored ❌
+
+---
+
+## 🧠 Final Behavior
+
+* `"user data loaded"` is printed **ONLY ONCE**
+* But `setInterval` keeps running → **wasting memory/CPU**
+
+---
+
+## ⚠️ Problem in your code
+
+Using `setInterval` inside a Promise is usually a mistake here.
+
+👉 Because:
+
+* Promise resolves once
+* Interval runs forever → unnecessary
+
+---
+
+## ✅ Correct version (use `setTimeout`)
+
+```js
+const myP = new Promise((res, rej) => {
+    setTimeout(() => {
+        res("user data loaded");
+    }, 2000);
+});
+
+myP.then(e => {
+    console.log(e);
+});
+```
+
+✔ Runs once
+✔ No memory waste
+✔ Correct async pattern
+
+---
+
+## 🧩 Bonus: When to use `setInterval`?
+
+Use it only if you want **repeated actions**, not a single Promise resolution.
+
+Example:
+
+```js
+setInterval(() => {
+    console.log("Fetching data...");
+}, 2000);
+```
+
+---
+
+## 💡 Key Takeaway
+
+👉 **Promise = single result**
+👉 **setInterval = repeated execution**
+
+Mixing them like this = usually wrong 🚫
+
+---
+
+If you want, I can show you:
+
+* how to convert interval-based logic into async/await loop 🔁
+* or real-world API polling example 🚀
+
+
+
+
+
+end++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=
+---
+
+
+
+
+
+
 
 
 
