@@ -1,3 +1,132 @@
+###################################################################################################################################################################
+# 1. exception
+Your logic is **almost perfect** ✅ — just one small but important detail to fix.
+
+---
+
+## 🔴 Problem in your code
+
+```js
+.join()
+```
+
+By default, `.join()` adds **commas** between characters.
+
+So:
+
+```js
+"abc".split('').reverse().join()
+```
+
+👉 becomes:
+
+```
+"c,b,a"
+```
+
+But you want:
+
+```
+"cba"
+```
+
+---
+
+## ✅ Fix
+
+Use `.join("")` (empty string)
+
+---
+
+## ✔️ Correct Code
+
+```js
+const fs = require("fs");
+const input = fs.readFileSync(0, "utf-8").trim().split("\n");
+
+// take input
+const s = input[0];
+const r = input[1];
+
+// reverse input && compare
+if (r === s.split('').reverse().join("")) {
+    console.log("YES");
+} else {
+    console.log("NO");
+}
+```
+
+---
+
+## 🧠 Explanation (important for interviews & CF)
+
+* `split('')` → converts string to array
+* `reverse()` → reverses array
+* `join("")` → converts back to string (without commas)
+
+---
+
+## 🔥 Example
+
+Input:
+
+```
+abc
+cba
+```
+
+Output:
+
+```
+YES
+```
+
+---
+
+## ⚡ Extra Tip (More Optimal)
+
+Avoid creating extra array → use loop (better for large strings)
+
+```js
+let isReverse = true;
+
+for (let i = 0; i < s.length; i++) {
+    if (s[i] !== r[s.length - i - 1]) {
+        isReverse = false;
+        break;
+    }
+}
+
+console.log(isReverse ? "YES" : "NO");
+```
+
+👉 This is **O(n)** and uses **no extra memory**
+
+---
+
+If you want, I can give you:
+
+* Python version
+* C++ version
+* Competitive programming tricks for strings 🚀
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#######################################################################################################################################################################3
+
+
 Here are the most common ways to **reverse a string in JavaScript**:
 
 ---
