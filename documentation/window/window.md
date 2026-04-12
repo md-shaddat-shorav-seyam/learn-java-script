@@ -812,4 +812,5 @@ Just say 👍
 ```js   
 e.addEventListener("click", () => {
     navigator.clipboard.writeText(color)
-})```
+})
+```
