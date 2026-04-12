@@ -808,3 +808,8 @@ I can give you:
 
 Just say 👍
 
+# Copy color on click
+```js   
+e.addEventListener("click", () => {
+    navigator.clipboard.writeText(color)
+})```
